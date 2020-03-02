@@ -1,0 +1,52 @@
+package com.example.g_list;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+
+    ArrayList<Product> allProductsKroger;
+    Product product;
+    ArrayList<Product> allProductsPublix;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        ContactDataSource ds = new ContactDataSource(this);
+//        try{
+            ds.open();
+            Bitmap bananas = BitmapFactory.decodeResource(getResources(), R.drawable.bananas);
+
+            ds.addProduct("kroger", "bananas", bananas);
+            product = ds.getSpecificProduct("bananas","kroger");
+
+                TextView text = (TextView) findViewById(R.id.textView6);
+                ImageView imageView = (ImageView) findViewById(R.id.imageView);
+
+                text.setText(product.getProductName());
+                imageView.setImageBitmap(product.getProductPhoto());
+
+            ds.close();
+//        }catch (Exception e){
+//            Toast.makeText(this, "Error retrieving products", Toast.LENGTH_LONG).show();
+//        }
+    }
+
+
+
+}
+

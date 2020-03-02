@@ -1,20 +1,22 @@
-package com.example.g_list;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+        package com.example.g_list;
 
-import static android.content.ContentValues.TAG;
+        import android.content.ContentValues;
+        import android.content.Context;
+        import android.database.Cursor;
+        import android.database.SQLException;
+        import android.database.sqlite.SQLiteDatabase;
+        import android.graphics.Bitmap;
+        import android.graphics.BitmapFactory;
+        import android.util.Log;
+
+        import java.io.ByteArrayInputStream;
+        import java.io.ByteArrayOutputStream;
+        import java.lang.reflect.Array;
+        import java.util.ArrayList;
+
+        import static android.content.ContentValues.TAG;
 
 public class ContactDataSource {
     private SQLiteDatabase database;
@@ -34,7 +36,7 @@ public class ContactDataSource {
     }
 
     //SQL METHODS
-    public boolean addFood(String groceryStore, String productName, Bitmap photo){
+    public boolean addProduct(String groceryStore, String productName, Bitmap photo){
         boolean success;
         try{
             ContentValues initialValues = new ContentValues();
@@ -84,9 +86,9 @@ public class ContactDataSource {
     }
 
 
-    public Product getSpecificProduct(int product_Id, String groceryStore) {
+    public Product getSpecificProduct(String productName, String groceryStore) {
         Product product = new Product();
-        String query = "SELECT * FROM " + groceryStore + " WHERE _id =" + product_Id;
+        String query = "SELECT * FROM " + groceryStore + " WHERE kroger_product_name = \"" + productName + "\";";
         Cursor cursor = database.rawQuery(query, null);
 
         if (cursor.moveToFirst()) {

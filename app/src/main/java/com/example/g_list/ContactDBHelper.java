@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+
+//SAMPLE DATA WILL NEED TO BE ADDED ALREADY.
 public class ContactDBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "grocery_list.db";
@@ -12,11 +14,11 @@ public class ContactDBHelper extends SQLiteOpenHelper {
 
     // Database creation sql statement
     private static final String CREATE_TABLE_KROGER =
-            "create table kroger (product_id integer primary key autoincrement, "
-                    + "product_name text not null, product_photo blob);";
+            "create table kroger (kroger_id integer primary key autoincrement, "
+                    + "kroger_product_name text not null, product_photo blob);";
     private static final String CREATE_TABLE_PUBLIX =
-            "create table publix (product_id integer primary key autoincrement, "
-                    + "product_name text not null, product_photo blob);";
+            "create table publix (publix_id integer primary key autoincrement, "
+                    + "publix_product_name text not null unique, product_photo blob);";
     private static final String CREATE_TABLE_ALL_LIST =
             "create table all_list(user_list_id integer primary key autoincrement, "
                     + "list_name text not null, date_created text);";
