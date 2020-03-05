@@ -6,9 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ListView
+    <RelativeLayout
+        android:id="@+id/AddGroceryListbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true">
+
+        <Button
+            android:id="@+id/addList"
+            android:text="Add List"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"/>
+
+        <Button
+            android:id="@+id/deleteList"
+            android:text="Delete List"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginEnd="20dp" />
+
+        <TextView
+            android:id="@+id/activityName"
+            android:text="Grocery List"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+
+            />
+
+
+
 
     </RelativeLayout>
 
+    <ListView
+        android:id="@+id/listGroceryList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AddGroceryListbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginLeft="-4dp"
+        android:layout_marginTop="0dp" />
+
+    <ScrollView
+            android:id="@+id/scrollGroceryList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+</RelativeLayout>
